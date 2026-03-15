@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryForge - 原创小说创作与阅读平台</title>
+    <meta name="description" content="StoryForge：原创小说创作与阅读平台，数字工匠文化系列小说">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .status {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 2px solid #81c784;
+        }
+        
+        .message {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .message h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .message p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .feature p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .project-card {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .project-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">StoryForge</div>
+        <div class="tagline">原创小说创作与阅读平台 · 数字工匠文化系列</div>
+        
+        <div class="status">🚧 开发进行中 · 即将上线</div>
+        
+        <div class="message">
+            <h3>🎯 项目简介</h3>
+            <p>StoryForge 是一个专注于原创技术主题小说的创作与阅读平台，旨在通过故事传递数字工匠文化价值观。</p>
+            <p>我们相信：技术不仅关乎代码，更关乎人、选择和价值观。好的故事能让技术理念深入人心。</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h4>📚 原创小说系列</h4>
+                <p>《数字工匠传奇》三部曲：<br>《开源之心》《隐私边界》《持续迭代》</p>
+            </div>
+            
+            <div class="feature">
+                <h4>🎨 沉浸式阅读体验</h4>
+                <p>个性化阅读设置、离线支持、进度保存、章节评论互动</p>
+            </div>
+            
+            <div class="feature">
+                <h4>🛠️ 现代化技术栈</h4>
+                <p>Vue.js + VuePress 静态站点生成器，双重部署架构，响应式设计</p>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <span class="tech-tag">Vue.js</span>
+            <span class="tech-tag">VuePress</span>
+            <span class="tech-tag">Markdown</span>
+            <span class="tech-tag">Service Worker</span>
+            <span class="tech-tag">响应式设计</span>
+        </div>
+        
+        <h3 style="margin: 30px 0 20px; color: #333;">📖 开始阅读《开源之心》</h3>
+        <div class="chapters" style="margin-bottom: 40px; background: #f8f9fa; padding: 30px; border-radius: 15px; border: 2px solid #e9ecef;">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <a href="reader.html?chapter=chapter-01" style="display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 16px 40px; border-radius: 30px; font-size: 1.2rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 25px rgba(102, 126, 234, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.4)';">
+                    🚀 立即开始阅读
+                </a>
+                <p style="margin-top: 15px; color: #666; font-size: 0.95rem;">沉浸式阅读体验，支持离线阅读和进度保存</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #667eea; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h4 style="margin-bottom: 10px; color: #333;">第一章：午夜警报</h4>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">深夜的生产服务器警报打破了平静...</p>
+                    <a href="reader.html?chapter=chapter-01" style="color: #667eea; font-weight: 600; text-decoration: none;">阅读第一章 →</a>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #764ba2; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h4 style="margin-bottom: 10px; color: #333;">第二章：代码深渊</h4>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">深入遗留代码的迷宫，寻找解决方案...</p>
+                    <a href="reader.html?chapter=chapter-02" style="color: #764ba2; font-weight: 600; text-decoration: none;">阅读第二章 →</a>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #4CAF50; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h4 style="margin-bottom: 10px; color: #333;">第三章：开源之心</h4>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">发现开源社区的力量与协作精神...</p>
+                    <a href="reader.html?chapter=chapter-03" style="color: #4CAF50; font-weight: 600; text-decoration: none;">阅读第三章 →</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+                <p style="color: #888; font-size: 0.9rem;">📚 总计 3 章，约 6000 字 | ⏱️ 预计阅读时间 20-30 分钟</p>
+                <p style="color: #888; font-size: 0.9rem;">✨ 更多章节正在创作中，每周更新</p>
+            </div>
+        </div>
+        
+        <h3 style="margin: 30px 0 20px; color: #333;">📁 相关项目</h3>
+        <div class="projects">
+            <a href="https://cr1s164.github.io/toolkit-lab" class="project-card" target="_blank">
+                <h4>ToolKit Lab</h4>
+                <p>完全免费的开发者工具集合网站</p>
+            </a>
+            
+            <a href="https://cr1s164.github.io/gamelab" class="project-card" target="_blank">
+                <h4>GameLab</h4>
+                <p>原创小游戏集合网站</p>
+            </a>
+        </div>
+        
+        <div id="donate" style="margin: 40px 0; padding: 30px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-radius: 15px; text-align: center; border: 2px solid rgba(102, 126, 234, 0.3);">
+            <h3 style="margin-bottom: 15px; color: #667eea; font-size: 1.8rem;">📖 支持原创小说创作</h3>
+            <p style="margin-bottom: 10px; color: #555; font-size: 1.1rem;">如果这些故事触动了你，请考虑支持我们继续创作。</p>
+            <p style="margin-bottom: 20px; color: #777; font-size: 0.95rem;">所有收入将用于：服务器费用、创作更多章节、保持无广告阅读体验</p>
+            
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 25px;">
+                <div style="text-align: center;">
+                    <img src="images/wechat-qr.jpg" alt="微信收款码" style="width: 220px; height: 220px; border-radius: 12px; border: 3px solid #667eea; box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);">
+                    <p style="margin-top: 12px; font-weight: 600; color: #667eea;">微信扫码支持</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 25px; color: #999; font-size: 0.85rem; line-height: 1.5;">
+                单次支持最高2000元，完全自愿。你的支持让我们能创作更多优质内容，传播数字工匠文化！<br>
+                <span style="color: #764ba2;">开源 · 隐私 · 实用 · 持续迭代</span>
+            </p>
+        </div>
+        <div class="footer">
+            <p>© 2026 StoryForge · 数字工匠文化项目 · 所有内容100%原创</p>
+            <p>理念：开源 · 隐私 · 实用 · 持续迭代</p>
+            <p>GitHub: <a href="https://github.com/Cr1s164/storyforge" target="_blank">Cr1s164/storyforge</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // 简单的页面交互
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加项目卡片点击统计（示例）
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    console.log('项目卡片点击:', this.querySelector('h4').textContent);
+                });
+            });
+            
+            // 显示当前时间
+            const now = new Date();
+            const timeStr = now.toLocaleString('zh-CN', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            // 在控制台显示部署信息
+            console.log('StoryForge 部署时间:', timeStr);
+            console.log('技术栈: Vue.js + VuePress + GitHub Pages');
+            console.log('内容: 原创技术主题小说 + 数字工匠文化');
+        });
+    </script>
+</body>
+</html>

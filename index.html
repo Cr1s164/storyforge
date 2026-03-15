@@ -222,6 +222,79 @@
             <span class="tech-tag">响应式设计</span>
         </div>
         
+        <h3 style="margin: 30px 0 20px; color: #333;">📖 开始阅读《开源之心》</h3>
+        <div class="chapters" style="margin-bottom: 40px; background: #f8f9fa; padding: 30px; border-radius: 15px; border: 2px solid #e9ecef;">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <a href="#" onclick="showReader('chapter-01'); return false;" style="display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 16px 40px; border-radius: 30px; font-size: 1.2rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 25px rgba(102, 126, 234, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.4)';">
+                    🚀 立即开始阅读
+                </a>
+                <p style="margin-top: 15px; color: #666; font-size: 0.95rem;">沉浸式阅读体验，支持离线阅读和进度保存</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #667eea; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h4 style="margin-bottom: 10px; color: #333;">第一章：午夜警报</h4>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">深夜的生产服务器警报打破了平静...</p>
+                    <a href="#" onclick="showReader('chapter-01'); return false;" style="color: #667eea; font-weight: 600; text-decoration: none;">阅读第一章 →</a>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #764ba2; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h4 style="margin-bottom: 10px; color: #333;">第二章：代码深渊</h4>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">深入遗留代码的迷宫，寻找解决方案...</p>
+                    <a href="#" onclick="showReader('chapter-02'); return false;" style="color: #764ba2; font-weight: 600; text-decoration: none;">阅读第二章 →</a>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #4CAF50; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h4 style="margin-bottom: 10px; color: #333;">第三章：开源之心</h4>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">发现开源社区的力量与协作精神...</p>
+                    <a href="#" onclick="showReader('chapter-03'); return false;" style="color: #4CAF50; font-weight: 600; text-decoration: none;">阅读第三章 →</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+                <p style="color: #888; font-size: 0.9rem;">📚 总计 3 章，约 6000 字 | ⏱️ 预计阅读时间 20-30 分钟</p>
+                <p style="color: #888; font-size: 0.9rem;">✨ 更多章节正在创作中，每周更新</p>
+            </div>
+        </div>
+        
+        <!-- 阅读器容器（默认隐藏） -->
+        <div id="reader-container" style="display: none; margin: 40px 0; background: white; border-radius: 15px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px 30px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.8rem;" id="reader-title">StoryForge 阅读器</h2>
+                    <p style="margin: 5px 0 0; opacity: 0.9;" id="reader-subtitle">沉浸式阅读体验</p>
+                </div>
+                <button id="close-reader" style="background: rgba(255, 255, 255, 0.2); border: 2px solid white; color: white; padding: 10px 25px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)';">返回首页</button>
+            </div>
+            
+            <div style="padding: 30px;">
+                <div style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <div>
+                        <label for="chapterSelect" style="font-weight: 600; color: #333; margin-right: 10px;">选择章节：</label>
+                        <select id="chapterSelect" style="padding: 10px 20px; border-radius: 25px; border: 2px solid #667eea; background: white; color: #333; font-size: 1rem; min-width: 200px;">
+                            <option value="chapter-01">第一章：午夜警报</option>
+                            <option value="chapter-02">第二章：代码深渊</option>
+                            <option value="chapter-03">第三章：开源之心</option>
+                        </select>
+                    </div>
+                    <div style="color: #666; font-weight: 500;" id="chapter-info">正在加载章节...</div>
+                </div>
+                
+                <div style="background: #f8f9fa; border-radius: 12px; padding: 30px; min-height: 400px; text-align: left; line-height: 1.8;" id="chapter-content">
+                    <div style="text-align: center; padding: 50px;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">📖</div>
+                        <p style="font-size: 1.2rem; color: #666;">正在加载章节内容...</p>
+                        <p style="color: #999; margin-top: 10px;">如果内容未加载，请检查网络连接或刷新页面</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; text-align: center; padding-top: 20px; border-top: 1px solid #e9ecef;">
+                    <button id="prev-chapter" style="background: #f5f5f5; border: 2px solid #ddd; color: #666; padding: 12px 30px; border-radius: 25px; font-weight: 600; margin-right: 15px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#e9ecef';" onmouseout="this.style.background='#f5f5f5';">上一章</button>
+                    <button id="next-chapter" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none; color: white; padding: 12px 30px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">下一章</button>
+                </div>
+            </div>
+        </div>
+        
         <h3 style="margin: 30px 0 20px; color: #333;">📁 相关项目</h3>
         <div class="projects">
             <a href="https://cr1s164.github.io/toolkit-lab" class="project-card" target="_blank">
@@ -259,8 +332,159 @@
         </div>
     </div>
     
+    <!-- 引入Markdown解析库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
     <script>
-        // 简单的页面交互
+        // 章节配置
+        const chapters = [
+            { 
+                id: 'chapter-01', 
+                title: '第一章：午夜警报', 
+                file: 'https://raw.githubusercontent.com/Cr1s164/cr1s164.github.io/main/storyforge/content/open-source-heart/chapters/chapter-01.md',
+                subtitle: '深夜的生产服务器警报打破了平静...'
+            },
+            { 
+                id: 'chapter-02', 
+                title: '第二章：代码深渊', 
+                file: 'https://raw.githubusercontent.com/Cr1s164/cr1s164.github.io/main/storyforge/content/open-source-heart/chapters/chapter-02.md',
+                subtitle: '深入遗留代码的迷宫，寻找解决方案...'
+            },
+            { 
+                id: 'chapter-03', 
+                title: '第三章：开源之心', 
+                file: 'https://raw.githubusercontent.com/Cr1s164/cr1s164.github.io/main/storyforge/content/open-source-heart/chapters/chapter-03.md',
+                subtitle: '发现开源社区的力量与协作精神...'
+            }
+        ];
+        
+        // 显示阅读器并加载指定章节
+        function showReader(chapterId) {
+            // 显示阅读器容器
+            document.getElementById('reader-container').style.display = 'block';
+            
+            // 滚动到阅读器
+            document.getElementById('reader-container').scrollIntoView({ behavior: 'smooth' });
+            
+            // 设置章节选择器
+            document.getElementById('chapterSelect').value = chapterId;
+            
+            // 加载章节内容
+            loadChapter(chapterId);
+            
+            // 更新浏览器URL（不刷新页面）
+            const url = new URL(window.location);
+            url.searchParams.set('chapter', chapterId);
+            window.history.pushState({}, '', url);
+        }
+        
+        // 加载章节内容
+        async function loadChapter(chapterId) {
+            const chapter = chapters.find(c => c.id === chapterId);
+            if (!chapter) {
+                console.error('章节未找到:', chapterId);
+                return;
+            }
+            
+            // 更新标题和状态
+            document.getElementById('reader-title').textContent = chapter.title;
+            document.getElementById('reader-subtitle').textContent = chapter.subtitle;
+            document.getElementById('chapter-info').textContent = `正在加载 ${chapter.title}...`;
+            document.getElementById('chapter-content').innerHTML = `
+                <div style="text-align: center; padding: 50px;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">⏳</div>
+                    <p style="font-size: 1.2rem; color: #666;">正在加载章节内容...</p>
+                    <p style="color: #999; margin-top: 10px;">请稍候...</p>
+                </div>
+            `;
+            
+            try {
+                // 从GitHub Raw URL加载Markdown内容
+                const response = await fetch(chapter.file);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
+                const markdown = await response.text();
+                
+                // 使用marked.js渲染Markdown
+                const html = marked.parse(markdown);
+                
+                // 显示内容
+                document.getElementById('chapter-content').innerHTML = html;
+                document.getElementById('chapter-info').textContent = `${chapter.title} - 加载完成`;
+                
+                // 添加章节样式
+                const style = document.createElement('style');
+                style.textContent = `
+                    #chapter-content h1, #chapter-content h2, #chapter-content h3 {
+                        margin-top: 1.5em;
+                        margin-bottom: 0.5em;
+                        color: #333;
+                    }
+                    #chapter-content h1 { font-size: 2rem; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+                    #chapter-content h2 { font-size: 1.7rem; color: #764ba2; }
+                    #chapter-content h3 { font-size: 1.4rem; color: #4CAF50; }
+                    #chapter-content p { margin-bottom: 1em; line-height: 1.8; }
+                    #chapter-content blockquote {
+                        border-left: 4px solid #667eea;
+                        padding-left: 1em;
+                        margin-left: 0;
+                        color: #666;
+                        background: #f8f9fa;
+                        padding: 15px;
+                        border-radius: 0 8px 8px 0;
+                    }
+                    #chapter-content code {
+                        background: #f1f1f1;
+                        padding: 2px 6px;
+                        border-radius: 4px;
+                        font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+                        font-size: 0.9em;
+                    }
+                    #chapter-content pre {
+                        background: #2d2d2d;
+                        color: #f8f8f2;
+                        padding: 15px;
+                        border-radius: 8px;
+                        overflow-x: auto;
+                        margin: 1em 0;
+                    }
+                    #chapter-content pre code {
+                        background: transparent;
+                        padding: 0;
+                        color: inherit;
+                    }
+                `;
+                document.head.appendChild(style);
+                
+            } catch (error) {
+                console.error('加载章节失败:', error);
+                document.getElementById('chapter-content').innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">❌</div>
+                        <p style="font-size: 1.2rem; color: #dc3545;">加载章节失败</p>
+                        <p style="color: #999; margin-top: 10px;">错误: ${error.message}</p>
+                        <p style="color: #666; margin-top: 20px;">请检查网络连接或稍后再试。</p>
+                        <button onclick="loadChapter('${chapterId}')" style="margin-top: 20px; background: #667eea; color: white; border: none; padding: 10px 25px; border-radius: 25px; cursor: pointer;">重试</button>
+                    </div>
+                `;
+                document.getElementById('chapter-info').textContent = `${chapter.title} - 加载失败`;
+            }
+        }
+        
+        // 关闭阅读器
+        function closeReader() {
+            document.getElementById('reader-container').style.display = 'none';
+            
+            // 清除URL参数
+            const url = new URL(window.location);
+            url.searchParams.delete('chapter');
+            window.history.pushState({}, '', url);
+            
+            // 滚动回顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // 初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 添加项目卡片点击统计（示例）
             const projectCards = document.querySelectorAll('.project-card');
@@ -284,6 +508,36 @@
             console.log('StoryForge 部署时间:', timeStr);
             console.log('技术栈: Vue.js + VuePress + GitHub Pages');
             console.log('内容: 原创技术主题小说 + 数字工匠文化');
+            
+            // 绑定阅读器事件
+            document.getElementById('close-reader').addEventListener('click', closeReader);
+            
+            document.getElementById('chapterSelect').addEventListener('change', function() {
+                showReader(this.value);
+            });
+            
+            document.getElementById('prev-chapter').addEventListener('click', function() {
+                const current = document.getElementById('chapterSelect').value;
+                const index = chapters.findIndex(c => c.id === current);
+                if (index > 0) {
+                    showReader(chapters[index - 1].id);
+                }
+            });
+            
+            document.getElementById('next-chapter').addEventListener('click', function() {
+                const current = document.getElementById('chapterSelect').value;
+                const index = chapters.findIndex(c => c.id === current);
+                if (index < chapters.length - 1) {
+                    showReader(chapters[index + 1].id);
+                }
+            });
+            
+            // 检查URL参数，如果有章节参数则自动打开阅读器
+            const urlParams = new URLSearchParams(window.location.search);
+            const chapterParam = urlParams.get('chapter');
+            if (chapterParam && chapters.some(c => c.id === chapterParam)) {
+                showReader(chapterParam);
+            }
         });
     </script>
 </body>
