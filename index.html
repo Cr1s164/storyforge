@@ -228,7 +228,7 @@
                 <a href="#" onclick="showReader('chapter-01'); return false;" style="display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 16px 40px; border-radius: 30px; font-size: 1.2rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 25px rgba(102, 126, 234, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.4)';">
                     🚀 立即开始阅读
                 </a>
-                <p style="margin-top: 15px; color: #666; font-size: 0.95rem;">沉浸式阅读体验，支持离线阅读和进度保存</p>
+                <p style="margin-top: 15px; color: #666; font-size: 0.95rem;">沉浸式阅读体验，支持离线阅读和进度保存<br><a href="reader.html" style="color: #667eea; font-weight: 600; text-decoration: none; font-size: 0.9rem;">📖 使用完整阅读器页面 →</a></p>
             </div>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
@@ -249,10 +249,16 @@
                     <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">发现开源社区的力量与协作精神...</p>
                     <a href="#" onclick="showReader('chapter-03'); return false;" style="color: #4CAF50; font-weight: 600; text-decoration: none;">阅读第三章 →</a>
                 </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #FF9800; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h4 style="margin-bottom: 10px; color: #333;">第四章：商业的诱惑</h4>
+                    <p style="color: #666; margin-bottom: 15px; font-size: 0.95rem;">面临风险投资诱惑，在开源与商业化之间抉择...</p>
+                    <a href="#" onclick="showReader('chapter-04'); return false;" style="color: #FF9800; font-weight: 600; text-decoration: none;">阅读第四章 →</a>
+                </div>
             </div>
             
             <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e9ecef;">
-                <p style="color: #888; font-size: 0.9rem;">📚 总计 3 章，约 6000 字 | ⏱️ 预计阅读时间 20-30 分钟</p>
+                <p style="color: #888; font-size: 0.9rem;">📚 总计 4 章，约 8200 字 | ⏱️ 预计阅读时间 30-40 分钟</p>
                 <p style="color: #888; font-size: 0.9rem;">✨ 更多章节正在创作中，每周更新</p>
             </div>
         </div>
@@ -275,6 +281,7 @@
                             <option value="chapter-01">第一章：午夜警报</option>
                             <option value="chapter-02">第二章：代码深渊</option>
                             <option value="chapter-03">第三章：开源之心</option>
+                            <option value="chapter-04">第四章：商业的诱惑</option>
                         </select>
                     </div>
                     <div style="color: #666; font-weight: 500;" id="chapter-info">正在加载章节...</div>
@@ -341,20 +348,26 @@
             { 
                 id: 'chapter-01', 
                 title: '第一章：午夜警报', 
-                file: 'https://raw.githubusercontent.com/Cr1s164/cr1s164.github.io/main/storyforge/content/open-source-heart/chapters/chapter-01.md',
+                file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-01.md',
                 subtitle: '深夜的生产服务器警报打破了平静...'
             },
             { 
                 id: 'chapter-02', 
                 title: '第二章：代码深渊', 
-                file: 'https://raw.githubusercontent.com/Cr1s164/cr1s164.github.io/main/storyforge/content/open-source-heart/chapters/chapter-02.md',
+                file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-02.md',
                 subtitle: '深入遗留代码的迷宫，寻找解决方案...'
             },
             { 
                 id: 'chapter-03', 
                 title: '第三章：开源之心', 
-                file: 'https://raw.githubusercontent.com/Cr1s164/cr1s164.github.io/main/storyforge/content/open-source-heart/chapters/chapter-03.md',
+                file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-03.md',
                 subtitle: '发现开源社区的力量与协作精神...'
+            },
+            { 
+                id: 'chapter-04', 
+                title: '第四章：商业的诱惑', 
+                file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-04.md',
+                subtitle: '面临风险投资诱惑，在开源与商业化之间抉择...'
             }
         ];
         
