@@ -6,6 +6,7 @@
     <title>StoryForge 阅读器</title>
     <meta name="description" content="StoryForge 小说阅读器 - 沉浸式阅读体验">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/series-manager.js"></script>
     <style>
         * {
             margin: 0;
@@ -173,6 +174,7 @@
     
     <script>
         // 章节配置 - 使用GitHub Raw URL绕过GitHub Pages限制
+        // 传统章节数据（向后兼容）
         const chapters = [
             { id: 'chapter-01', title: '第一章：午夜警报', file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-01.md' },
             { id: 'chapter-02', title: '第二章：代码深渊', file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-02.md' },
@@ -180,15 +182,124 @@
             { id: 'chapter-04', title: '第四章：商业的诱惑', file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-04.md' }
         ];
         
-        // 从URL获取章节参数
-        function getChapterFromUrl() {
+        // 系列管理器状态
+        let seriesManager = null;
+        let isSeriesMode = false;
+        let currentSeries = null;
+        let currentBook = null;
+        let currentChapters = [];
+        
+        // 生成章节文件URL
+        function generateChapterFiles(series, book) {
+            // 如果书籍有chaptersInfo，使用它
+            if (book.chaptersInfo && Array.isArray(book.chaptersInfo)) {
+                return book.chaptersInfo.map((chapterInfo, index) => {
+                    const chapterNum = String(index + 1).padStart(2, '0');
+                    // 生成GitHub Raw URL
+                    const fileUrl = `https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/${series.id}/chapters/chapter-${chapterNum}.md`;
+                    return {
+                        id: `chapter-${chapterNum}`,
+                        title: `第${index + 1}章：${chapterInfo.title}` || `第${index + 1}章`,
+                        file: fileUrl
+                    };
+                });
+            }
+            
+            // 回退：根据系列ID生成默认章节
+            if (series.id === 'open-source-heart') {
+                return [
+                    { id: 'chapter-01', title: '午夜警报', file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-01.md' },
+                    { id: 'chapter-02', title: '代码深渊', file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-02.md' },
+                    { id: 'chapter-03', title: '开源之心', file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-03.md' },
+                    { id: 'chapter-04', title: '商业的诱惑', file: 'https://raw.githubusercontent.com/Cr1s164/storyforge/main/content/open-source-heart/chapters/chapter-04.md' }
+                ];
+            }
+            
+            // 无匹配系列，返回空数组
+            console.warn(`⚠️ 无法为系列 ${series.id} 生成章节文件`);
+            return [];
+        }
+        
+        // 初始化系列模式
+        async function initSeriesMode() {
+            const params = getUrlParams();
+            if (!params.series) {
+                console.log('📚 传统模式：未指定系列参数');
+                return false;
+            }
+            
+            try {
+                seriesManager = new SeriesManager();
+                await seriesManager.init();
+                
+                // 等待数据加载
+                await new Promise((resolve) => {
+                    seriesManager.addEventListener('seriesDataLoaded', resolve);
+                    setTimeout(resolve, 1000); // 超时回退
+                });
+                
+                // 查找系列
+                const series = seriesManager.getSeriesById(params.series);
+                if (!series) {
+                    console.warn(`⚠️ 未找到系列: ${params.series}`);
+                    return false;
+                }
+                
+                currentSeries = series;
+                
+                // 查找书籍
+                const book = params.book ? 
+                    seriesManager.getBookById(params.series, params.book) :
+                    series.books[0];
+                    
+                if (!book) {
+                    console.warn(`⚠️ 未找到书籍: ${params.book}`);
+                    return false;
+                }
+                
+                currentBook = book;
+                // 生成章节文件URL
+                currentChapters = generateChapterFiles(series, book);
+                isSeriesMode = true;
+                
+                console.log(`✅ 系列模式启用: ${series.title} - ${book.title}`);
+                return true;
+                
+            } catch (error) {
+                console.error('❌ 系列模式初始化失败:', error);
+                return false;
+            }
+        }
+        
+        // 获取当前可用的章节列表
+        function getAvailableChapters() {
+            if (isSeriesMode && currentChapters.length > 0) {
+                return currentChapters;
+            }
+            return chapters; // 回退到传统章节
+        }
+        
+        // 从URL获取参数
+        function getUrlParams() {
             const params = new URLSearchParams(window.location.search);
-            return params.get('chapter') || 'chapter-01';
+            return {
+                series: params.get('series'),
+                book: params.get('book'),
+                chapter: params.get('chapter')
+            };
+        }
+        
+        // 向后兼容：获取章节参数
+        function getChapterFromUrl() {
+            const params = getUrlParams();
+            return params.chapter || 'chapter-01';
         }
         
         // 更新URL参数
-        function updateUrl(chapterId) {
+        function updateUrl(chapterId, seriesId, bookId) {
             const url = new URL(window.location);
+            if (seriesId) url.searchParams.set('series', seriesId);
+            if (bookId) url.searchParams.set('book', bookId);
             url.searchParams.set('chapter', chapterId);
             window.history.pushState({}, '', url);
         }
@@ -198,7 +309,9 @@
             const select = document.getElementById('chapterSelect');
             select.innerHTML = '';
             
-            chapters.forEach(chapter => {
+            const availableChapters = getAvailableChapters();
+            
+            availableChapters.forEach(chapter => {
                 const option = document.createElement('option');
                 option.value = chapter.id;
                 option.textContent = chapter.title;
@@ -212,7 +325,8 @@
             // 章节切换事件
             select.addEventListener('change', (e) => {
                 const chapterId = e.target.value;
-                updateUrl(chapterId);
+                const params = getUrlParams();
+                updateUrl(chapterId, params.series, params.book);
                 loadChapter(chapterId);
             });
         }
@@ -226,7 +340,8 @@
             contentDiv.innerHTML = '<div class="loading">正在加载章节内容...</div>';
             
             // 查找章节配置
-            const chapter = chapters.find(c => c.id === chapterId);
+            const availableChapters = getAvailableChapters();
+            const chapter = availableChapters.find(c => c.id === chapterId);
             if (!chapter) {
                 contentDiv.innerHTML = '<div class="error">章节不存在</div>';
                 return;
@@ -261,13 +376,19 @@
         }
         
         // 初始化
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 尝试初始化系列模式
+            await initSeriesMode();
+            
+            // 加载章节列表和内容
             loadChapterList();
             const initialChapter = getChapterFromUrl();
             loadChapter(initialChapter);
             
             // 处理浏览器前进/后退
-            window.addEventListener('popstate', () => {
+            window.addEventListener('popstate', async () => {
+                // 重新检查系列模式（URL可能已更改）
+                await initSeriesMode();
                 const chapterId = getChapterFromUrl();
                 document.getElementById('chapterSelect').value = chapterId;
                 loadChapter(chapterId);
