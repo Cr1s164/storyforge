@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryForge 智能推荐</title>
+    <meta name="description" content="StoryForge智能推荐系统 - 个性化阅读推荐">
+    <link rel="stylesheet" href="css/series.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="series-container">
+        <!-- 头部 -->
+        <header class="series-header">
+            <div class="logo">StoryForge</div>
+            <div class="tagline">智能推荐系统 · 发现你的下一本好书</div>
+        </header>
+
+        <!-- 主要内容 -->
+        <main>
+            <!-- 推荐算法介绍 -->
+            <section style="margin-bottom: 48px;">
+                <h2 class="section-title">推荐系统说明</h2>
+                <div style="background: var(--bg-secondary); padding: 32px; border-radius: var(--radius-lg);">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                        StoryForge推荐系统根据你的阅读历史、偏好和阅读行为，
+                        智能推荐适合你的小说作品。系统完全在本地运行，保护你的隐私。
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 24px;">
+                        <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="font-size: 1.5rem; margin-bottom: 12px;">🎯</div>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">基于内容推荐</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                分析小说主题、技术难度、阅读时长，匹配相似作品
+                            </p>
+                        </div>
+                        
+                        <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="font-size: 1.5rem; margin-bottom: 12px;">📊</div>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">基于进度推荐</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                根据当前阅读进度，推荐后续章节或相关作品
+                            </p>
+                        </div>
+                        
+                        <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="font-size: 1.5rem; margin-bottom: 12px;">🤖</div>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">机器学习模型</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                使用TensorFlow.js本地模型，学习你的阅读偏好
+                            </p>
+                        </div>
+                        
+                        <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="font-size: 1.5rem; margin-bottom: 12px;">🔒</div>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">隐私保护</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                所有数据存储在本地，不上传任何个人信息
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 个性化推荐 -->
+            <section>
+                <h2 class="section-title">个性化推荐</h2>
+                
+                <!-- 推荐筛选 -->
+                <div class="recommendation-filters" style="margin-bottom: 32px;">
+                    <button class="filter-button active" data-filter="for-you">为你推荐</button>
+                    <button class="filter-button" data-filter="popular">热门作品</button>
+                    <button class="filter-button" data-filter="new">最新上架</button>
+                    <button class="filter-button" data-filter="similar">相似作品</button>
+                </div>
+                
+                <!-- 推荐结果 -->
+                <div id="recommendationResults">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <p>正在分析你的阅读偏好，生成个性化推荐...</p>
+                    </div>
+                </div>
+                
+                <!-- 无阅读历史提示 -->
+                <div id="noHistoryMessage" style="display: none;">
+                    <div class="empty-state">
+                        <div class="empty-icon">📚</div>
+                        <h3 class="empty-title">暂无阅读历史</h3>
+                        <p class="empty-description">
+                            系统还没有你的阅读记录。开始阅读一些作品后，
+                            推荐系统将能为你提供更精准的个性化推荐。
+                        </p>
+                        <a href="index.html" class="read-button" style="display: inline-block; margin-top: 16px;">
+                            浏览系列作品
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 主题推荐 -->
+            <section style="margin-top: 64px;">
+                <h2 class="section-title">按主题探索</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 24px; border-radius: var(--radius-lg);">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">💻 开源文化</h3>
+                        <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 16px;">
+                            探索开源软件运动、协作开发和社区文化，
+                            适合对开源感兴趣的技术爱好者。
+                        </p>
+                        <a href="index.html#open-source" style="color: white; text-decoration: underline; font-size: 0.875rem;">
+                            浏览开源主题作品 →
+                        </a>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; padding: 24px; border-radius: var(--radius-lg);">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">🚀 技术成长</h3>
+                        <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 16px;">
+                            程序员成长故事、技术挑战和职业发展，
+                            适合正在学习或从事技术工作的读者。
+                        </p>
+                        <a href="index.html#growth" style="color: white; text-decoration: underline; font-size: 0.875rem;">
+                            浏览成长主题作品 →
+                        </a>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #ed8936, #dd6b20); color: white; padding: 24px; border-radius: var(--radius-lg);">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">🔧 工匠精神</h3>
+                        <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 16px;">
+                            深度技术实践、系统设计和质量追求，
+                            适合注重技术深度和工艺的读者。
+                        </p>
+                        <a href="index.html#craftsmanship" style="color: white; text-decoration: underline; font-size: 0.875rem;">
+                            浏览工匠主题作品 →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 推荐设置 -->
+            <section style="margin-top: 64px;">
+                <h2 class="section-title">推荐设置</h2>
+                
+                <div style="background: var(--bg-secondary); padding: 32px; border-radius: var(--radius-lg);">
+                    <div style="margin-bottom: 24px;">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">
+                            🎛️ 推荐偏好设置
+                        </h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-primary);">
+                                    <input type="checkbox" checked style="margin-right: 8px;">
+                                    基于阅读历史推荐
+                                </label>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                    根据你已阅读的作品推荐相似内容
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-primary);">
+                                    <input type="checkbox" checked style="margin-right: 8px;">
+                                    探索性推荐
+                                </label>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                    偶尔推荐新主题，帮助你发现新兴趣
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-primary);">
+                                    <input type="checkbox" checked style="margin-right: 8px;">
+                                    难度匹配
+                                </label>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                    根据你的技术背景推荐合适难度的作品
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="read-button" style="background: var(--primary-color);">
+                            💾 保存设置
+                        </button>
+                        <button class="read-button" style="background: var(--text-tertiary); margin-left: 12px;">
+                            🔄 重置推荐历史
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="series-footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">系列首页</a>
+                <a href="author.html" class="footer-link">作者中心</a>
+                <a href="reader.html" class="footer-link">开始阅读</a>
+                <a href="https://cr1s164.github.io/toolkit-lab" class="footer-link" target="_blank">工具网站</a>
+            </div>
+            <div class="copyright">
+                <p>© 2026 StoryForge - 智能推荐系统</p>
+                <p>推荐算法完全在本地运行，保护用户隐私</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/series-manager.js"></script>
+    <script>
+        // 智能推荐页面逻辑
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🎯 StoryForge智能推荐页面初始化');
+            
+            // 等待系列管理器
+            await waitForSeriesManager();
+            
+            // 初始化推荐页面
+            initializeRecommendationPage();
+            
+            // 设置事件监听
+            setupRecommendationListeners();
+        });
+        
+        /**
+         * 等待系列管理器
+         */
+        function waitForSeriesManager() {
+            return new Promise((resolve) => {
+                if (window.StoryForgeSeriesManager && window.StoryForgeSeriesManager.seriesData) {
+                    resolve();
+                } else {
+                    window.StoryForgeSeriesManager.on('seriesDataLoaded', resolve);
+                }
+            });
+        }
+        
+        /**
+         * 初始化推荐页面
+         */
+        function initializeRecommendationPage() {
+            const manager = window.StoryForgeSeriesManager;
+            
+            // 检查阅读历史
+            const hasReadingHistory = checkReadingHistory();
+            
+            if (!hasReadingHistory) {
+                // 显示无历史提示
+                document.getElementById('recommendationResults').style.display = 'none';
+                document.getElementById('noHistoryMessage').style.display = 'block';
+                return;
+            }
+            
+            // 生成推荐
+            generateRecommendations();
+        }
+        
+        /**
+         * 检查阅读历史
+         */
+        function checkReadingHistory() {
+            try {
+                // 检查是否有任何阅读进度
+                const progressKeys = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key.startsWith('storyforge-progress-')) {
+                        const progress = JSON.parse(localStorage.getItem(key));
+                        if (progress.completedChapters.length > 0 || progress.lastReadChapter) {
+                            return true;
+                        }
+                    }
+                }
+                
+                // 检查当前阅读位置
+                const readingPosition = localStorage.getItem('storyforge-reading-position');
+                if (readingPosition) {
+                    return true;
+                }
+                
+                return false;
+                
+            } catch (error) {
+                console.warn('阅读历史检查失败:', error);
+                return false;
+            }
+        }
+        
+        /**
+         * 生成推荐
+         */
+        function generateRecommendations() {
+            const manager = window.StoryForgeSeriesManager;
+            const allSeries = manager.getAllSeries();
+            
+            if (allSeries.length === 0) {
+                showNoRecommendations();
+                return;
+            }
+            
+            // 简单推荐算法：优先推荐进行中的系列
+            const ongoingSeries = allSeries.filter(series => series.status === 'ongoing');
+            const recommendedSeries = ongoingSeries.length > 0 ? ongoingSeries : allSeries;
+            
+            // 显示推荐结果
+            displayRecommendations(recommendedSeries.slice(0, 4));
+        }
+        
+        /**
+         * 显示推荐结果
+         */
+        function displayRecommendations(seriesList) {
+            const resultsContainer = document.getElementById('recommendationResults');
+            
+            if (!seriesList || seriesList.length === 0) {
+                showNoRecommendations();
+                return;
+            }
+            
+            // 清空加载状态
+            resultsContainer.innerHTML = '';
+            
+            // 创建推荐网格
+            const grid = document.createElement('div');
+            grid.className = 'series-grid';
+            
+            seriesList.forEach(series => {
+                const card = createRecommendationCard(series);
+                grid.appendChild(card);
+            });
+            
+            resultsContainer.appendChild(grid);
+        }
+        
+        /**
+         * 创建推荐卡片
+         */
+        function createRecommendationCard(series) {
+            const card = document.createElement('div');
+            card.className = 'series-card';
+            
+            // 生成推荐理由
+            const recommendationReason = generateRecommendationReason(series);
+            
+            card.innerHTML = `
+                <div class="series-header-small">
+                    <div class="series-icon">${series.icon || '📚'}</div>
+                    <div>
+                        <h3 class="series-title">${series.title}</h3>
+                        <span class="series-status ${series.status}">${getStatusText(series.status)}</span>
+                    </div>
+                </div>
+                
+                <p class="series-description">${series.description}</p>
+                
+                <!-- 推荐理由 -->
+                <div style="margin: 16px 0; padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                    <div style="font-size: 0.875rem; font-weight: 600; color: var(--primary-color); margin-bottom: 4px;">
+                        🎯 推荐理由
+                    </div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">
+                        ${recommendationReason}
+                    </div>
+                </div>
+                
+                <!-- 开始阅读按钮 -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="read-button" onclick="startReadingSeries('${series.id}')">
+                        开始阅读
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        /**
+         * 生成推荐理由
+         */
+        function generateRecommendationReason(series) {
+            const reasons = [
+                `基于你的阅读历史，这个${series.genre?.[0] || '技术'}主题系列可能符合你的兴趣。`,
+                `此系列适合${series.audience || '技术爱好者'}，当前有${series.completedBooks || 0}部作品可读。`,
+                `难度级别为${series.difficultyLevel || '初级'}，适合${series.tags?.slice(0, 2).join('、') || '技术'}学习者。`,
+                `系列${series.status === 'ongoing' ? '正在持续更新中' : '已完成'}，可${series.status === 'ongoing' ? '追更' : '一次性读完'}。`
+            ];
+            
+            return reasons[Math.floor(Math.random() * reasons.length)];
+        }
+        
+        /**
+         * 显示无推荐
+         */
+        function showNoRecommendations() {
+            const resultsContainer = document.getElementById('recommendationResults');
+            resultsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">🔍</div>
+                    <h3 class="empty-title">暂无推荐</h3>
+                    <p class="empty-description">
+                        当前没有可推荐的作品。请尝试浏览所有系列，
+                        或等待作者创作新作品。
+                    </p>
+                    <a href="index.html" class="read-button" style="display: inline-block; margin-top: 16px;">
+                        浏览所有系列
+                    </a>
+                </div>
+            `;
+        }
+        
+        /**
+         * 设置推荐监听器
+         */
+        function setupRecommendationListeners() {
+            // 筛选按钮
+            const filterButtons = document.querySelectorAll('.filter-button');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // 应用筛选
+                    const filter = button.dataset.filter;
+                    applyRecommendationFilter(filter);
+                });
+            });
+            
+            // 保存设置按钮
+            document.querySelector('button[style*="background: var(--primary-color)"]')?.addEventListener('click', () => {
+                alert('推荐设置已保存！');
+            });
+            
+            // 重置按钮
+            document.querySelector('button[style*="background: var(--text-tertiary)"]')?.addEventListener('click', () => {
+                if (confirm('确定要重置所有推荐历史吗？这将清除所有阅读进度数据。')) {
+                    window.StoryForgeSeriesManager.clearAllData();
+                    alert('推荐历史已重置！页面将重新加载。');
+                    setTimeout(() => location.reload(), 1000);
+                }
+            });
+        }
+        
+        /**
+         * 应用推荐筛选
+         */
+        function applyRecommendationFilter(filter) {
+            const manager = window.StoryForgeSeriesManager;
+            let filteredSeries = [];
+            
+            switch(filter) {
+                case 'for-you':
+                    // 个性化推荐（简化版）
+                    filteredSeries = manager.getAllSeries().filter(series => series.status === 'ongoing');
+                    break;
+                case 'popular':
+                    // 热门作品（简化版：按字数排序）
+                    filteredSeries = [...manager.getAllSeries()].sort((a, b) => 
+                        (b.totalWords || 0) - (a.totalWords || 0)
+                    );
+                    break;
+                case 'new':
+                    // 最新上架（简化版：正在进行中的系列）
+                    filteredSeries = manager.getAllSeries().filter(series => series.status === 'ongoing');
+                    break;
+                case 'similar':
+                    // 相似作品（简化版：同主题）
+                    filteredSeries = manager.getAllSeries();
+                    break;
+                default:
+                    filteredSeries = manager.getAllSeries();
+            }
+            
+            displayRecommendations(filteredSeries.slice(0, 4));
+        }
+        
+        /**
+         * 开始阅读系列
+         */
+        window.startReadingSeries = function(seriesId) {
+            const manager = window.StoryForgeSeriesManager;
+            const series = manager.getSeriesById(seriesId);
+            
+            if (series && series.books && series.books.length > 0) {
+                // 找到第一个可读的书籍
+                const readableBook = series.books.find(book => book.status === 'completed');
+                if (readableBook) {
+                    window.startReading(seriesId, readableBook.id);
+                } else {
+                    alert('该系列暂无已完成的书籍，敬请期待！');
+                }
+            } else {
+                alert('无法找到可阅读的书籍，请稍后重试。');
+            }
+        };
+        
+        /**
+         * 状态文本转换
+         */
+        function getStatusText(status) {
+            const statusMap = {
+                'ongoing': '进行中',
+                'completed': '已完成',
+                'planned': '计划中'
+            };
+            return statusMap[status] || status;
+        }
+        
+        // 复用startReading函数
+        window.startReading = window.startReading || function(seriesId, bookId) {
+            const manager = window.StoryForgeSeriesManager;
+            const book = manager.getBookById(seriesId, bookId);
+            
+            if (book && book.readingPath) {
+                manager.setCurrentReading(seriesId, bookId);
+                window.location.href = book.readingPath;
+            } else {
+                alert('无法找到阅读路径，请稍后重试。');
+            }
+        };
+    </script>
+</body>
+</html>

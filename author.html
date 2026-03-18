@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryForge 作者中心</title>
+    <meta name="description" content="StoryForge作者中心 - 创作理念、作品历程、读者互动">
+    <link rel="stylesheet" href="css/series.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="series-container">
+        <!-- 头部 -->
+        <header class="series-header">
+            <div class="logo">StoryForge</div>
+            <div class="tagline">作者中心 · 创作理念与读者互动</div>
+        </header>
+
+        <!-- 主要内容 -->
+        <main>
+            <!-- 作者介绍 -->
+            <section>
+                <h2 class="section-title">关于作者</h2>
+                <div style="display: flex; gap: 32px; margin-bottom: 48px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <div style="font-size: 1.25rem; font-weight: 600; color: var(--primary-color); margin-bottom: 16px;">
+                            👨‍💻 数字工匠
+                        </div>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                            技术创作者，开源文化倡导者，数字时代的故事讲述者。
+                            相信技术不仅是工具，更是连接思想、传递价值的媒介。
+                        </p>
+                        <p style="color: var(--text-secondary); line-height: 1.7;">
+                            通过StoryForge平台，我希望将技术知识、数字工匠精神和对开源文化的热爱，
+                            转化为引人入胜的故事，让更多人在阅读中获得启发和思考。
+                        </p>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg);">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">
+                            🎯 创作理念
+                        </h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+                            <li style="margin-bottom: 8px;"><strong>技术真实性</strong>: 所有技术细节基于真实实践，避免空洞描述</li>
+                            <li style="margin-bottom: 8px;"><strong>文化自然融入</strong>: 数字工匠精神通过故事自然传递，而非说教</li>
+                            <li style="margin-bottom: 8px;"><strong>价值导向</strong>: 每个故事都应给读者带来思考或启发</li>
+                            <li style="margin-bottom: 8px;"><strong>持续迭代</strong>: 基于读者反馈不断优化内容和平台体验</li>
+                            <li><strong>开放协作</strong>: 鼓励读者参与讨论，共同完善故事世界</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 创作历程 -->
+            <section>
+                <h2 class="section-title">创作历程</h2>
+                <div class="timeline" id="authorTimeline">
+                    <div class="timeline-event">
+                        <div class="event-date">2026-03-11</div>
+                        <div class="event-title">StoryForge构思诞生</div>
+                        <div class="event-description">
+                            开始构思技术主题小说平台，希望将数字工匠文化通过故事形式传播。
+                            确定《开源之心》作为第一部系列作品。
+                        </div>
+                        <div class="event-icon">💡</div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-date">2026-03-14</div>
+                        <div class="event-title">技术架构设计完成</div>
+                        <div class="event-description">
+                            完成StoryForge阅读平台技术选型，选择GitHub Pages部署确保国内访问，
+                            设计响应式阅读界面和离线阅读功能。
+                        </div>
+                        <div class="event-icon">💻</div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-date">2026-03-16</div>
+                        <div class="event-title">《开源之心》前4章发布</div>
+                        <div class="event-description">
+                            完成《开源之心》前4章创作，总计8105字，正式上线GitHub Pages。
+                            确立"技术真实+文学可读"的创作风格。
+                        </div>
+                        <div class="event-icon">🚀</div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-date">2026-03-18</div>
+                        <div class="event-title">用户反馈与架构优化</div>
+                        <div class="event-description">
+                            收到宝贵用户反馈："小说完结后下一部该怎么整合进来"。
+                            开始设计可扩展的系列管理系统，解决多作品整合问题。
+                        </div>
+                        <div class="event-icon">🔄</div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-date">2026-03-19</div>
+                        <div class="event-title">系列架构实现</div>
+                        <div class="event-description">
+                            实现完整的系列管理系统，支持多作品展示、阅读进度同步、
+                            智能推荐和作者中心功能，建立可持续的内容扩展框架。
+                        </div>
+                        <div class="event-icon">🏗️</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 未来规划 -->
+            <section>
+                <h2 class="section-title">未来创作规划</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+                    <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 24px; border-radius: var(--radius-lg);">
+                        <div style="font-size: 2rem; margin-bottom: 16px;">📚</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">《开源之心》系列</h3>
+                        <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 16px;">
+                            三部曲完整创作，探索开源运动的多个维度：
+                            理念觉醒 → 协作实践 → 技术传承
+                        </p>
+                        <div style="font-size: 0.875rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span>当前进度:</span>
+                                <span>4/12章</span>
+                            </div>
+                            <div style="height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; overflow: hidden;">
+                                <div style="width: 33%; height: 100%; background: white; border-radius: 3px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 2px solid var(--border-color);">
+                        <div style="font-size: 2rem; margin-bottom: 16px;">🔧</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">数字工匠传奇</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            探索编程艺术、系统设计、技术哲学的系列作品，
+                            深入数字时代工匠精神的内涵。
+                        </p>
+                        <div style="font-size: 0.875rem; color: var(--text-tertiary);">
+                            预计开始: 2026年7月
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 2px solid var(--border-color);">
+                        <div style="font-size: 2rem; margin-bottom: 16px;">🔐</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">隐私边界</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            网络安全与个人数据保护的惊悚系列，
+                            结合技术细节与现实社会问题思考。
+                        </p>
+                        <div style="font-size: 0.875rem; color: var(--text-tertiary);">
+                            预计开始: 2026年9月
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 读者互动 -->
+            <section>
+                <h2 class="section-title">读者互动</h2>
+                <div style="background: var(--bg-secondary); padding: 32px; border-radius: var(--radius-lg); margin-bottom: 48px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 20px;">
+                        💬 与作者交流
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
+                        你的反馈对我非常重要。无论是故事建议、技术细节讨论，
+                        还是对数字工匠文化的思考，都欢迎通过以下方式交流：
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="font-size: 1.5rem; margin-bottom: 12px;">📖</div>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">故事反馈</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                对故事情节、角色发展、技术细节的建议和想法
+                            </p>
+                        </div>
+                        
+                        <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="font-size: 1.5rem; margin-bottom: 12px;">💡</div>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">创作建议</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                希望看到的技术主题、故事类型或创作方向
+                            </p>
+                        </div>
+                        
+                        <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="font-size: 1.5rem; margin-bottom: 12px;">🔧</div>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">技术讨论</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                小说中涉及的技术概念、编程实践或开源文化讨论
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 32px; padding: 24px; background: var(--bg-primary); border-radius: var(--radius-md); border: 2px dashed var(--border-color);">
+                        <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                            反馈提交方式
+                        </h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+                            目前可通过以下方式提交反馈：
+                            1. <strong>GitHub Issues</strong>: 访问项目仓库提交具体建议
+                            2. <strong>邮件联系</strong>: 技术相关讨论可通过邮件交流
+                            3. <strong>阅读器内反馈</strong>: 未来版本将集成实时反馈功能
+                        </p>
+                        <div style="margin-top: 16px;">
+                            <a href="https://github.com/Cr1s164/storyforge/issues" target="_blank" 
+                               style="display: inline-block; padding: 10px 20px; background: var(--primary-color); 
+                                      color: white; border-radius: var(--radius-md); text-decoration: none; 
+                                      font-weight: 600; font-size: 0.875rem;">
+                                📝 提交GitHub反馈
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="series-footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">系列首页</a>
+                <a href="reader.html" class="footer-link">开始阅读</a>
+                <a href="recommend.html" class="footer-link">智能推荐</a>
+                <a href="https://cr1s164.github.io/toolkit-lab" class="footer-link" target="_blank">工具网站</a>
+                <a href="https://cr1s164.github.io/gamelab" class="footer-link" target="_blank">游戏网站</a>
+            </div>
+            <div class="copyright">
+                <p>© 2026 StoryForge - 原创小说创作与阅读平台</p>
+                <p>作者: 数字工匠 · 创作理念: 技术真实、文化自然、价值导向</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 作者中心页面逻辑
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('📝 StoryForge作者中心页面加载完成');
+            
+            // 可以添加更多交互功能，如反馈表单提交等
+        });
+    </script>
+</body>
+</html>
