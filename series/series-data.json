@@ -1,0 +1,225 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-03-19T02:12:00Z",
+  "description": "StoryForge系列作品元数据，定义所有系列和作品的结构关系",
+  "author": "数字工匠",
+  "contact": {
+    "email": "contact@storyforge.com",
+    "website": "https://cr1s164.github.io/storyforge"
+  },
+  "series": [
+    {
+      "id": "open-source-heart",
+      "title": "开源之心系列",
+      "description": "讲述开源软件运动与技术协作的系列小说，通过程序员李晨的成长故事，探索开源理念、技术伦理和数字工匠精神。",
+      "shortDescription": "开源软件运动与技术协作主题系列",
+      "author": "数字工匠",
+      "themeColor": "#667eea",
+      "backgroundColor": "#f8f9fa",
+      "status": "ongoing",
+      "genre": ["技术小说", "成长故事", "开源文化"],
+      "tags": ["开源", "编程", "技术伦理", "数字工匠", "成长"],
+      "audience": "技术爱好者、开发者、开源贡献者",
+      "difficultyLevel": "初级",
+      "startDate": "2026-03-11",
+      "estimatedCompletion": "2026-06-30",
+      "totalBooks": 3,
+      "completedBooks": 1,
+      "totalWords": 8105,
+      "totalChapters": 4,
+      "readingTime": "约45分钟",
+      "coverImage": "series/open-source-heart/cover.jpg",
+      "icon": "💻",
+      "books": [
+        {
+          "id": "book-1-open-source-heart",
+          "seriesId": "open-source-heart",
+          "bookNumber": 1,
+          "title": "开源之心",
+          "subtitle": "第一部：觉醒",
+          "description": "程序员李晨在商业软件公司与开源理念间的挣扎与成长故事。从技术执行者到思想觉醒者，探索开源运动的真正价值。",
+          "shortDescription": "程序员的开源理念觉醒之旅",
+          "coverImage": "series/open-source-heart/books/book-1-open-source-heart/cover.jpg",
+          "status": "completed",
+          "chapters": 4,
+          "words": 8105,
+          "publishedDate": "2026-03-16",
+          "updatedDate": "2026-03-18",
+          "readingTime": "45分钟",
+          "difficulty": "初级",
+          "tags": ["开源", "编程", "成长", "技术伦理", "商业软件", "自由软件"],
+          "recommendedReadingOrder": 1,
+          "prerequisites": [],
+          "readingPath": "reader.html?series=open-source-heart&book=book-1-open-source-heart&chapter=1",
+          "chaptersInfo": [
+            {
+              "id": "chapter-01",
+              "title": "午夜警报",
+              "description": "凌晨的生产环境故障，揭开了商业软件的脆弱面",
+              "words": 1853,
+              "readingTime": "10分钟"
+            },
+            {
+              "id": "chapter-02",
+              "title": "代码深渊",
+              "description": "追踪bug源头，发现技术债务的沉重代价",
+              "words": 2091,
+              "readingTime": "11分钟"
+            },
+            {
+              "id": "chapter-03",
+              "title": "开源之心",
+              "description": "接触开源社区，感受协作与共享的力量",
+              "words": 1983,
+              "readingTime": "10分钟"
+            },
+            {
+              "id": "chapter-04",
+              "title": "商业的诱惑",
+              "description": "面对高薪商业offer，坚守开源初心的艰难选择",
+              "words": 2178,
+              "readingTime": "11分钟"
+            }
+          ]
+        },
+        {
+          "id": "book-2-collaboration-power",
+          "seriesId": "open-source-heart",
+          "bookNumber": 2,
+          "title": "协作之力",
+          "subtitle": "第二部：成长",
+          "description": "李晨参与大型开源项目的协作经历，学习分布式团队的沟通、协调和冲突解决，体验开源协作的魔力。",
+          "shortDescription": "开源协作与分布式团队成长",
+          "coverImage": "series/open-source-heart/books/book-2-collaboration-power/cover.jpg",
+          "status": "planned",
+          "chapters": 0,
+          "words": 0,
+          "plannedDate": "2026-04-15",
+          "estimatedChapters": 6,
+          "estimatedWords": 12000,
+          "difficulty": "初级到中级",
+          "tags": ["协作", "分布式团队", "开源社区", "项目管理", "沟通"],
+          "recommendedReadingOrder": 2,
+          "prerequisites": ["book-1-open-source-heart"]
+        },
+        {
+          "id": "book-3-digital-legacy",
+          "seriesId": "open-source-heart",
+          "bookNumber": 3,
+          "title": "数字遗产",
+          "subtitle": "第三部：传承",
+          "description": "从开源贡献者到项目维护者的角色转变，思考技术传承、社区治理和开源项目的可持续发展。",
+          "shortDescription": "开源项目的传承与可持续发展",
+          "coverImage": "series/open-source-heart/books/book-3-digital-legacy/cover.jpg",
+          "status": "planned",
+          "chapters": 0,
+          "words": 0,
+          "plannedDate": "2026-06-30",
+          "estimatedChapters": 8,
+          "estimatedWords": 16000,
+          "difficulty": "中级",
+          "tags": ["传承", "社区治理", "可持续发展", "技术领导力", "开源经济"],
+          "recommendedReadingOrder": 3,
+          "prerequisites": ["book-1-open-source-heart", "book-2-collaboration-power"]
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-03-11",
+          "event": "系列构思完成",
+          "description": "确定《开源之心》三部曲结构和核心主题，规划角色成长弧线",
+          "icon": "📝",
+          "importance": "high"
+        },
+        {
+          "date": "2026-03-14",
+          "event": "技术架构设计",
+          "description": "完成StoryForge阅读平台技术选型和架构设计",
+          "icon": "💻",
+          "importance": "medium"
+        },
+        {
+          "date": "2026-03-16",
+          "event": "第一部前4章发布",
+          "description": "《开源之心》前4章完成并上线GitHub Pages",
+          "icon": "🚀",
+          "importance": "high"
+        },
+        {
+          "date": "2026-03-18",
+          "event": "用户反馈收集",
+          "description": "收到用户关于系列扩展架构的宝贵反馈，开始设计新架构",
+          "icon": "💡",
+          "importance": "high"
+        },
+        {
+          "date": "2026-03-19",
+          "event": "系列架构设计",
+          "description": "开始实施可扩展的系列管理系统",
+          "icon": "🏗️",
+          "importance": "high"
+        }
+      ],
+      "readingOrder": [
+        {
+          "order": 1,
+          "bookId": "book-1-open-source-heart",
+          "description": "建议从此书开始，了解主角背景和核心冲突"
+        },
+        {
+          "order": 2,
+          "bookId": "book-2-collaboration-power",
+          "description": "深入开源协作，学习团队合作技能"
+        },
+        {
+          "order": 3,
+          "bookId": "book-3-digital-legacy",
+          "description": "探索开源传承，思考技术项目的长期价值"
+        }
+      ]
+    }
+  ],
+  "futureSeries": [
+    {
+      "id": "digital-craftsman",
+      "title": "数字工匠传奇",
+      "description": "探索数字时代工匠精神的系列作品，涵盖编程艺术、系统设计、技术哲学等主题",
+      "status": "concept",
+      "plannedStart": "2026-07-01",
+      "genre": ["技术哲学", "工匠精神", "系统思维"]
+    },
+    {
+      "id": "privacy-frontier",
+      "title": "隐私边界",
+      "description": "网络安全与个人数据保护的惊悚系列，结合技术细节与现实社会问题",
+      "status": "concept",
+      "plannedStart": "2026-09-01",
+      "genre": ["网络安全", "惊悚", "社会议题"]
+    }
+  ],
+  "statistics": {
+    "totalSeries": 1,
+    "totalBooks": 3,
+    "completedBooks": 1,
+    "totalWords": 8105,
+    "totalChapters": 4,
+    "estimatedTotalWords": 36105,
+    "authors": 1,
+    "lastContentUpdate": "2026-03-18"
+  },
+  "recommendationRules": {
+    "byTheme": {
+      "开源": ["open-source-heart"],
+      "技术成长": ["open-source-heart"],
+      "协作沟通": ["open-source-heart"]
+    },
+    "byDifficulty": {
+      "初级": ["open-source-heart"],
+      "技术入门": ["open-source-heart"]
+    },
+    "byReadingTime": {
+      "短篇(<1小时)": ["open-source-heart"],
+      "系列阅读": ["open-source-heart"]
+    }
+  }
+}
